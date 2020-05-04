@@ -48,11 +48,11 @@ static int __init process_list_init(void){
 	return 0;
 }
 
-static void __exit process_list_init(void){
+static void __exit process_list_exit(void){
 	remove_proc_entry("process_list", NULL);
 	printk(KERN_INFO "Modulo process_list terminado.\n");
 }
 
 module_init(process_list_init);
-module_exit(process_list_init);
+module_exit(process_list_exit);
 MODULE_LICENSE("GPL");
