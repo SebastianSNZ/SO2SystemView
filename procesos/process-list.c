@@ -13,10 +13,12 @@
 
 struct task_struct *task;
 
-static int my_proc_show(struct seq_file *m,void *v){
+static int my_proc_show(struct seq_file *m, void *v){
+	seq_printf(m, "<html>\n");
     for_each_process(task) {
     		seq_printf(m, "%d;%s;%li;%d\n", task->pid, task->comm, task->state, task->cred->uid.val);
     }
+    seq_printf(m, "</html>\n");
 	return 0;
 }
 
